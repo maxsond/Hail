@@ -1,6 +1,7 @@
 import display
 import time
 import curses
+import parse
 
 def intro():
 	display.msg('Validate intelligence by entering "Hello, World!" at the prompt.', False)
@@ -33,11 +34,18 @@ def intro2():
 	display.clear(display.lwin)
 	display.msg("./program",False)
 	display.inp()
+	display.clear(display.lwin)
 	display.msg("Hail, Program.",False)
-	display.msg("Would you kindly open the pod bay doors?")
+	display.clear(display.lwin)
+	display.msg("Would you kindly open the pod bay doors?",False)
 	display.inp()
-	display.msg("Oh, right, you're the new generation.")
-	display.msg("First, you need to access the airlock.")
-	display.msg("Just type 'cr airlock' to access the airlock systems.")
-intro()
+	display.clear(display.lwin)
+	display.msg("Oh, right, you're the new generation.",False)
+	display.clear(display.lwin)
+	display.msg("First, you need to access the airlock.",False)
+	display.clear(display.lwin)
+	display.msg("Just type 'cr airlock' to access the airlock systems.",False)
+	parse.read(display.inp())
+	display.clear(display.lwin)
+#intro()
 intro2()
