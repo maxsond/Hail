@@ -1,4 +1,4 @@
-import creator
+#import creator
 import display
 import winsize
 x = winsize.x()
@@ -18,7 +18,7 @@ def read(sentence):
 		return None
 	verblist = ["cr"]
 	if verb in verblist:
-		interact(noun,verb)
+		command(noun,verb)
 	elif verb == "quit":
 		t = "Thanks for playing!"
 		display.clear()
@@ -28,17 +28,21 @@ def read(sentence):
 		exit()
 	else:
 		display.clear()
-		m = "Humanity is not yet capable of such feats. Try doing something else."
+		m = "Error. Unknown command."
 		display.msg(m)
-		m = "Valid verbs are: Taste, Feel, Listen, Smell, Push, and Pull."
+		m = "Valid commands are: cr"
 		display.msg(m)
-		m = "You can also type 'quit game' to recover your sight."
+		m = "Or enter 'quit game' to format your own hard drive."
 		display.msg(m)
 		display.clear()
 		return None
 
 def command(noun,verb):
-	pass
+	if verb == 'cr':
+		roomlist = ['airlock']
+		if noun in roomlist:
+			m = "Command accepted. Accessing room diagnostics for " + noun + "."
+			display.msg(m)
 '''
 def interact(noun,verb):
 	interactdict = {
