@@ -10,45 +10,36 @@ def read(sentence):
 		noun = sarray[1].lower()
 	except:
 		display.clear()
-		t = "The universe is not yet ready for such a marvel."
-		h = len(t)/2
-		p = display.msg(y/2,x/2-h,0.1,t)
-		p.tw(False)
-		t = "A valid sentence is of the form 'Verb Noun'."
-		h = len(t)/2
-		p = display.msg(y/2+1,x/2-h,0.1,t)
-		p.tw(True)
+		t = "Error. Invalid input detected."
+		p = display.msg(t)
+		t = ""
+		p = display.msg(t)
 		display.clear()
 		return None
-	verblist = ["push","pull","taste","listen","smell","feel"]
+	verblist = ["cr"]
 	if verb in verblist:
 		interact(noun,verb)
 	elif verb == "quit":
 		t = "Thanks for playing!"
-		h = len(t)/2
-		p = display.msg(y/2,x/2-h,0.1,t)
 		display.clear()
-		p.tw(True)
+		p = display.msg(t)
 		display.end()
 		curses.endwin()
 		exit()
 	else:
 		display.clear()
 		m = "Humanity is not yet capable of such feats. Try doing something else."
-		h = len(m)/2
-		o = display.msg(y/2,x/2-h,0.1,m,'right')
-		o.tw(False)
+		display.msg(m)
 		m = "Valid verbs are: Taste, Feel, Listen, Smell, Push, and Pull."
-		h = len(m)/2
-		o = display.msg(y/2+1,x/2-h,0.1,m,'right')
-		o.tw(False)
+		display.msg(m)
 		m = "You can also type 'quit game' to recover your sight."
-		h = len(m)/2
-		o = display.msg(y/2+2,x/2-h,0.1,m,'right')
-		o.tw(True)
+		display.msg(m)
 		display.clear()
 		return None
-		
+
+def command(noun,verb):
+	pass
+'''
 def interact(noun,verb):
 	interactdict = {
 		"feel": "You reach out and touch the " + noun + ".",
@@ -96,3 +87,4 @@ def interact(noun,verb):
 		h = len(t)/2
 		p = display.msg(y/2,x/2-h,0.1,t)
 		creator.thingdict[noun].feel = display.inp(p)
+'''
