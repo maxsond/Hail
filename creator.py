@@ -8,3 +8,17 @@ class room:
 		self.exitlist = exitlist
 		self.thinglist = thinglist
 		self.oxygen = oxygen
+
+class char:
+	
+	def __init__(self,name,job,friends,loc):
+		self.name = name
+		self.job = job
+		self.friends = friends
+		self.loc = location
+		
+	def move(curroom,newroom)
+		self.loc = newroom
+		curroom.occlist.index(self).pop()
+		newroom.occlist.append(self)
+		curroom.
