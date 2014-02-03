@@ -39,7 +39,7 @@ def read(sentence):
 
 def command(noun,verb):
 	if verb == 'cr':
-		roomlist = ['airlock']
+		roomlist = ['airlock', 'bridge','hydroponics','medical','engineering','propulsion']
 		if noun in roomlist:
 			m = "Command accepted. Accessing room diagnostics for " + noun + "."
 			display.msg(m)
