@@ -1,6 +1,6 @@
 roomdict = {}
 
-class room:
+class Room:
 
 	def __init__(self,name,maxocc=0,occlist=[],exitlist=[],thinglist=[],oxygen=100,desc="Needs a description"):
 		self.name = name
