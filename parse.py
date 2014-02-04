@@ -1,6 +1,7 @@
 #import creator
 import display
 import winsize
+from creator import Room
 x = winsize.x()
 y = winsize.y()
 def read(sentence):
@@ -39,10 +40,18 @@ def read(sentence):
 
 def command(noun,verb):
 	if verb == 'cr':
-		roomlist = ['airlock', 'bridge','hydroponics','medical','engineering','propulsion']
+		roomlist = {
+		'airlock': Room('Airlock'), 
+		'bridge': Room('Bridge'),
+		'hydroponics': Room('Hydroponics'),
+		'medical': Room('Medical'),
+		'engineering': Room('Engineering'),
+		'propulsion': Room('Propulsion')
+		}
 		if noun in roomlist:
 			m = "Command accepted. Accessing room diagnostics for " + noun + "."
 			display.msg(m)
+			display.msg(roomlist[noun].cam())
 '''
 def interact(noun,verb):
 	interactdict = {
