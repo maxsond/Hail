@@ -32,6 +32,7 @@ def intro():
 		display.clear(display.lwin)
 def intro2():
 	display.clear(display.lwin)
+	'''
 	display.msg("./program",False)
 	display.inp()
 	display.clear(display.lwin)
@@ -44,6 +45,7 @@ def intro2():
 	display.clear(display.lwin)
 	display.msg("First, you need to access the airlock.",False)
 	display.clear(display.lwin)
+	'''
 	display.msg("Just type 'cr airlock' to access the airlock systems.",False)
 	parse.read(display.inp())
 	display.clear(display.lwin)
