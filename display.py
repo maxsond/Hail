@@ -1,3 +1,7 @@
+## @package display
+#
+# Displays game output via console
+
 import time
 import curses
 from winsize import x, y
@@ -7,6 +11,7 @@ scr = curses.initscr()
 scr.border(0)
 lwin = scr.derwin(0,x/2,1,1)
 rwin = scr.derwin(0,0,1,x/2+1)
+## Redraws borders, but does not erase current contents
 def refresh():
 	scr.border(0)
 	scr.refresh()
@@ -16,6 +21,9 @@ def refresh():
 	rwin.refresh()
 refresh()
 r = lwin.getmaxyx()[1]
+## Message object
+#
+# Contains its own formatting which will then be read and processed by the window where it is printed.
 class msg:
 	
 	def __init__(self,txt="Test String",wait=True,win=lwin,speed=0.1):
@@ -25,22 +33,20 @@ class msg:
 		self.speed = speed
 		self.win = win
 		self.tw(wait,win)
-		
-	def al(self, align):	#Represents how the text should be horizontally aligned relative to (x,y)
+	## Represents how the text should be horizontally aligned relative to (x,y)
+	def al(self, align):	
 		if align == 'right':
 			return self.x
 		elif align == 'center':
 			return self.x - len(self.txt)/2
 		elif align == 'left':
 			return self.x - len(self.txt)
-
+	## Taps out a message like a typewriter.
+	#
+	#	msg -> Message to be tapped out
+	#	w -> Window to work in
+	#	x,y -> Where the cursor should start
 	def tw(self,wait=True,win=lwin,xy=(1,1)):
-		"""Taps out a message like a typewriter.
-
-		msg -> Message to be tapped out
-		w -> Window to work in
-		x,y -> Where the cursor should start
-		"""
 		#try:
 		win.move(xy[0],xy[1])
 		a = self.txt.split(" ")
