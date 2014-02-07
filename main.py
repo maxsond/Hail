@@ -1,3 +1,7 @@
+##	@package main
+#
+#	Runs main game logic and makes calls to helper modules
+
 import display
 import time
 import curses
