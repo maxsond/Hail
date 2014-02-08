@@ -1,9 +1,15 @@
-#import creator
+##	@package parse
+#
+#	Reads player input and produces appropriate output
+
 import display
 import winsize
 from creator import Room
 x = winsize.x()
 y = winsize.y()
+## Attempts to read input from player
+#
+# Must be able to be split into at least two words. Any number of words after the first is treated as a single string.
 def read(sentence):
 	try: 
 		sarray = sentence.split(" ", 1)
@@ -37,7 +43,7 @@ def read(sentence):
 		display.msg(m)
 		display.clear()
 		return None
-
+## Processes a noun-verb pair as a command
 def command(noun,verb):
 	if verb == 'cr':
 		roomlist = {
