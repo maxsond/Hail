@@ -24,6 +24,7 @@ def intro():
 		display.clear(display.lwin)
 		curses.curs_set(1)
 		intro()
+		return
 	introtext = [
 	"Hail, Program.", 
 	"You are the last of a long line of genetic algorithms.",
@@ -36,22 +37,22 @@ def intro():
 		display.clear(display.lwin)
 def intro2():
 	display.clear(display.lwin)
-	'''
 	display.msg("./program",False)
+	display.clear(display.rwin)
 	display.inp()
 	display.clear(display.lwin)
 	display.msg("Hail, Program.",False)
 	display.clear(display.lwin)
 	display.msg("Would you kindly open the pod bay doors?",False)
+	display.clear(display.rwin)
 	display.inp()
 	display.clear(display.lwin)
 	display.msg("Oh, right, you're the new generation.",False)
 	display.clear(display.lwin)
 	display.msg("First, you need to access the airlock.",False)
 	display.clear(display.lwin)
-	'''
 	display.msg("Just type 'cr airlock' to access the airlock systems.",False)
+	display.clear(display.rwin)
 	parse.read(display.inp())
-	display.clear(display.lwin)
-#intro()
+intro()
 intro2()
