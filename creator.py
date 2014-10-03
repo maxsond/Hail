@@ -20,7 +20,7 @@ class Room:
 	#
 	# Starts with name, then a blank line, then the description of the room concatenated with sentences describing its contents.
 	def cam(self):
-		r = self.name + '\n\n' + self.desc
+		r = self.name + '\n\n ' + self.desc
 		return r
 
 class Char:
