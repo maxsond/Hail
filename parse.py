@@ -16,12 +16,12 @@ def read(sentence):
 		verb = sarray[0].lower()
 		noun = sarray[1].lower()
 	except:
-		display.clear()
+		display.clear(display.lwin)
+		display.clear(display.rwin)
 		t = "Error. Invalid input detected."
-		p = display.msg(t)
-		t = ""
-		p = display.msg(t)
-		display.clear()
+		p = display.msg(t,False)
+		read(display.inp())
+		#display.clear()
 		return None
 	verblist = ["cr"]
 	if verb in verblist:
@@ -36,16 +36,20 @@ def read(sentence):
 	else:
 		display.clear()
 		m = "Error. Unknown command."
-		display.msg(m)
+		display.msg(m,False)
+		display.clear(display.lwin)
 		m = "Valid commands are: cr"
-		display.msg(m)
+		display.msg(m,False)
+		display.clear(display.lwin)
 		m = "Or enter 'quit game' to format your own hard drive."
-		display.msg(m)
-		display.clear()
+		display.msg(m,False)
+		read(display.inp())
 		return None
 ## Processes a noun-verb pair as a command
 def command(noun,verb):
 	if verb == 'cr':
+	## Doesn't make much sense for this to be populated here. Should break this out at some point.
+	## TODO: Fix this.
 		roomlist = {
 		'airlock': Room('Airlock'), 
 		'bridge': Room('Bridge'),
@@ -56,7 +60,9 @@ def command(noun,verb):
 		}
 		if noun in roomlist:
 			m = "Command accepted. Accessing room diagnostics for " + noun + "."
+			display.clear(display.lwin)
 			display.msg(m)
+			display.clear(display.lwin)
 			display.msg(roomlist[noun].cam())
 '''
 def interact(noun,verb):
